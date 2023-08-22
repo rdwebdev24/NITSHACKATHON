@@ -1,0 +1,23 @@
+.rightSidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 14rem;
+  height: 100vh;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 0 0.5rem;
+}
+.rightSidebar ul {
+  font-size: 1.1rem;
+  list-style-type: none;
+}
+.rightSidebar ul li {
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+.rightSidebar ul .active {
+  background-color: #1976d2;
+  color: #fff;
+}/*# sourceMappingURL=Rsidebar.css.map */

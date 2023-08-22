@@ -1,0 +1,10 @@
+.analysisWrapper{
+     height: 90vh;
+}
+
+.analysisInfo{
+     padding: 1rem ;
+}
+.chartInfo{
+     display: flex;
+}

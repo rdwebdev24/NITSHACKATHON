@@ -1,0 +1,86 @@
+a{
+     text-decoration: none;
+}
+.LandingWrapper{
+     height: 100vh;
+     background: rgb(255,255,255);
+     background: linear-gradient(141deg, rgba(255,255,255,0.7483368347338936) 50%, rgba(45,144,33,1) 50%);
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     color: #fff;
+
+}
+.logo{
+     margin: 0.5rem;
+     position: absolute;
+     width: 100px;
+}
+.logo img{
+     border-radius: 10px;
+     width: 80px;
+}
+
+.nitImage{
+     display: flex;
+     align-items: center;
+     
+}
+.nitImage  img{
+     width: 400px;
+}
+
+.landingInfo{
+     border-radius: 10px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     padding: 2rem 4rem;
+}
+
+.signIn_signUp{
+    justify-content: space-around;
+     display: flex;
+     width: 100%;
+     gap: 1rem;
+     padding: 1rem 0;
+}
+#vision{
+     border-radius: 20px;
+     height: 40vh;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     max-width: 35rem;
+     gap: 1rem;
+     margin: auto;
+     padding: 1rem;
+}
+h3{
+     text-align: center;
+}
+h2{
+     
+     text-align: center;
+}
+p{
+     font-family: 'Fuzzy Bubbles', cursive;
+}
+#Footer{
+     padding: 1.5rem 0;
+     color: beige;
+     display: flex;
+     align-items: center;
+     justify-content: space-around;
+     
+}
+
+@media screen and (max-width:768px) {
+     .LandingWrapper{
+          flex-direction: column;
+     }
+     .nitImage  .nitsImg{
+          width: 300px;
+     }
+}
