@@ -11,13 +11,15 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import { useGlobalContext } from '../../context/Context';
 
 const theme = createTheme();
 
 export default function SignUp() {
 
   const navigate = useNavigate();
-  const url = 'http://localhost:5000/api'
+  const {url} = useGlobalContext();
+
 
   const handleSubmit = async (event) => {
    event.preventDefault();
@@ -34,6 +36,7 @@ export default function SignUp() {
 
     try {
       const {data} = await axios.post(url+'/register',userData);
+      console.log(data);
       if(data.status==400){alert(data.msg);return;}
       localStorage.setItem('greenitsToken', data.user.token)
       navigate('/login')

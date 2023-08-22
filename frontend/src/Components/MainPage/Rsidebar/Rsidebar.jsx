@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import {IoIosSend} from 'react-icons/io'
-import {PiHandshakeFill} from 'react-icons/pi'
-import { Link, useNavigate } from "react-router-dom";
+import {FaRegHandshake} from 'react-icons/fa'
+import {  useNavigate } from "react-router-dom";
 import './Rsidebar.css';
 
 export const Rsidebar = () => {
   const [active,setActive] = useState(localStorage.getItem('active')?localStorage.getItem('active'):'request');
   const navigate = useNavigate();
   useEffect(()=>{
-    const a = localStorage.getItem('active')
     setActive(JSON.parse(localStorage.getItem('active')))
   })
   return (
@@ -23,7 +22,7 @@ export const Rsidebar = () => {
             setActive('contribution');
             localStorage.setItem('active',JSON.stringify('contribution'))
             navigate('contribution')
-          }}> <span>Contribution</span> <span><PiHandshakeFill/></span> </li>
+          }}> <span>Contribution</span> <span><FaRegHandshake/></span> </li>
        </ul>
     </div>
   );

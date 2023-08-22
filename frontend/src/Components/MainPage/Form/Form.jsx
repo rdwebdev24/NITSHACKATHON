@@ -8,10 +8,11 @@ import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import axios from 'axios'
 import './Form.css'
+import { useGlobalContext } from "../../../context/Context";
 
 export const Form = () => {
   const formref = useRef();
-  const url = 'http://localhost:5000/api'
+  const {url} = useGlobalContext();
   
   const getToken = () => {
       const token = localStorage.getItem('greenitsToken'); // Replace 'token' with the actual key you used to store the token

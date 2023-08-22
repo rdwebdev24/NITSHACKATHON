@@ -8,9 +8,10 @@ import Stack from '@mui/material/Stack';
 import trash from '../../../assets/trash.png'
 import './Contribution.css'
 import axios from 'axios'
+import { useGlobalContext } from '../../../context/Context';
 
 export const Contribution = () => {
-  const url = 'http://localhost:5000/api'
+  const {url} = useGlobalContext();
   const [contribution,setContribution] = useState([]);
   const [loading,setLoading] = useState(false);
   const [singleContribution,setSingleContribution] = useState({});

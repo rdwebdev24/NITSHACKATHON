@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({extended:false}))
 
 app.use('/api',UserRouter)
+app.get('/',(req,res)=>{res.send({msg:"success",status:200})})
 
 app.listen(PORT,()=>{
      console.log(`server is listening on ${PORT}`);
