@@ -1,20 +1,14 @@
-const MongoClient = require('mongodb').MongoClient;
+const mongoose = require("mongoose");
+const colors = require("colors");
 
-const uri = process.env.MONGO_URI
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Database name
-const dbName = "GREENITS";
-const connectdb = async () =>  {
-  try {
-    await client.connect();
-    const db = client.db(dbName);
-    console.log(`Connected to the ${dbName} database.`);
-    client.close();
-    console.log('MongoDB connection closed.');
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-
-module.exports = connectdb
+const MONGO_URL = process.env.MONGO_URL;
+mongoose.set("strictQuery", false);
+module.exports = (connectDB) => {
+  mongoose.connect(process.env.MONGO_URI, function (err) {
+    if (err) {
+      console.log(`${err} 😫`.red.bold);
+    } else {
+      console.log("Connected to MongoDB 🔥 ".cyan.bold);
+    }
+  });
+};

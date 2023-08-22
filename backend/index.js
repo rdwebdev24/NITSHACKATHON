@@ -10,7 +10,6 @@ const UserRouter =  require('./Routes/Route.js')
 const {GET_ALL_USER} = require('./controllers/Controller.js')
 const {LOGIN,REGISTER} = require('./controllers/authControllers')
 
-console.log(connectdb);
 const PORT = process.env.PORT
 // connecting the database
 connectdb();
