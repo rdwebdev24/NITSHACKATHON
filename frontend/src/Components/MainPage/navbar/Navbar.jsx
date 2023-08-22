@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import './navbar.css'
 import { useNavigate } from "react-router-dom";
 
-export const Navbar = ({ userName }) => {
+export const Navbar = () => {
   return (
     <nav id="navbar">
       <a className="navbar-brand ms-3 text-white" href="#">Greenits</a>

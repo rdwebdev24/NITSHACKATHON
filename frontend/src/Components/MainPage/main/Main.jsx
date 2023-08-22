@@ -4,11 +4,11 @@ import { Rsidebar } from "../Rsidebar/Rsidebar";
 import {Navbar} from "../navbar/Navbar";
 import './main.css'
 
-const Main = ({todo,setTodo,userName}) => {
+const Main = () => {
   
   return (
     <section id="mainpage">
-      <Navbar userName={userName}/>
+      <Navbar />
       <div id="main-wrapper">
        <Rsidebar/>
         <div className="main-cont">

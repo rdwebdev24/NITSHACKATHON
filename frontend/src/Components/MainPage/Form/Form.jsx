@@ -13,6 +13,7 @@ import { useGlobalContext } from "../../../context/Context";
 export const Form = () => {
   const formref = useRef();
   const {url} = useGlobalContext();
+  const [loading,setLoading] = useState(false)
   
   const getToken = () => {
       const token = localStorage.getItem('greenitsToken'); // Replace 'token' with the actual key you used to store the token
@@ -41,12 +42,15 @@ export const Form = () => {
 
 
      try {
-       const {data} = await axios.post(url+'/waste',WasteData);
-       if(data.status==400){alert(data.msg);return;};
-       if(data.status==500){alert(data.msg);return;};
-       alert('request sent')
+      setLoading(true)
+      const {data} = await axios.post(url+'/waste',WasteData);
+      if(data.status==400){alert(data.msg);return;};
+      if(data.status==500){alert(data.msg);return;};
+      alert('request sent')
+      setLoading(false)
        formref.current.reset();
      } catch (error) {
+      setLoading(false)
         alert(error.message)      
      }
 
@@ -59,7 +63,7 @@ export const Form = () => {
             <NatureOfWaste />
             <Duration />
             <UploadImage/>
-            <Submit/>
+            <Submit loading={loading}/>
         </div>
         <div className="form-right">
             <Weight />
@@ -154,13 +158,14 @@ const UploadImage = () => {
     )
 }
 
-const Submit = () => {
+const Submit = ({loading}) => {
     return (
         <Button
         variant="contained"
         component="label"
+        disabled={loading}
         >
-        Send
+        {loading?"Sending...":"Send"}
         <input
             type="submit"
             hidden

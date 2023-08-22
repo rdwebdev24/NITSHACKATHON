@@ -20,6 +20,7 @@ export default function SignIn() {
 
   const navigate = useNavigate();
   const {url} = useGlobalContext();
+  const [loading,setLoading] = React.useState(false)
 
   const handleSubmit = async ( event) => {
     event.preventDefault();
@@ -33,11 +34,14 @@ export default function SignIn() {
     if(!(userData.email && userData.password)){alert('all inputs are required')}
 
     try {
+      setLoading(true)
       const {data} = await axios.post(url+'/login',userData);
       if(data.status==400){alert(data.msg);return;}
       localStorage.setItem('greenitsToken', data.user.token)
+      setLoading(false)
       navigate('/main/request')
     } catch (error) {
+      setLoading(false)
       alert(error.message);
       return;
     }
@@ -85,8 +89,9 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              disabled={loading}
             >
-              Sign In
+              {loading?"Signing In":"Sign In"}
             </Button>
             <Grid container>
               <Grid item xs>

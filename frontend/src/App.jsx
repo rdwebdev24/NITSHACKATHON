@@ -10,8 +10,6 @@ import { Form } from './Components/MainPage/Form/Form'
 import { Contribution } from './Components/MainPage/Contribution/Contribution'
 const App = () => {
 
-  const [todo,setTodo] = useState([])
-  const [userName,setUserName] = useState('');
 
   return (
     <div>
@@ -21,7 +19,7 @@ const App = () => {
               <Route path='/login' element={<Login/>}/>
               <Route path='/register' element={<Register/>}/>
               <Route path='/register' element={<Register/>}/>
-              <Route path='/main' element={<Main userName={userName} todo={todo} setTodo={setTodo}/>}>
+              <Route path='/main' element={<Main />}>
                 <Route path='request'element={<Form/>}/>
                 <Route path='contribution' element={<Contribution/>}/>
               </Route>

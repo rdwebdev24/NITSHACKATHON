@@ -6,6 +6,7 @@ import {Button} from '@mui/material'
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 import trash from '../../../assets/trash.png'
+import NoContro from '../../../assets/NoContro.gif'
 import './Contribution.css'
 import axios from 'axios'
 import { useGlobalContext } from '../../../context/Context';
@@ -50,12 +51,18 @@ export const Contribution = () => {
     <div id='contribution-wrapper'>
         <h1>Your contributions</h1>
         <div className="contribution-cont">
-          {loading?<SkeletonComponent/>:contribution.map((item,index)=>{
+          {loading?<SkeletonComponent/>
+          :!loading && contribution.length==0
+          ?<div style={{diaplay:"flex"}}>
+            <img src={NoContro} alt="no contribution gif"/>
+            <h3 style={{color:"#555"}}>No contribution Yet ☹️</h3>
+          </div>
+          :contribution.map((item,index)=>{
             const dateTimeString = item.createdAt
             const dateTime = new Date(dateTimeString);
             const date = dateTime.toLocaleDateString(); // Extract the date
             return (
-              <div className="cont-items">
+              <div key={index} className="cont-items">
                 <img src={trash} alt="trash" />
                 <div className="date-view">
                   <span style={{fontSize:"0.9rem"}} >{date}</span>

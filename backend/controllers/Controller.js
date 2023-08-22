@@ -90,11 +90,8 @@ const POST_WASTE_INFO = async (req, res) => {
     const newWaste = await WasteInfo.create(newData);
     // updating the user contribution array;
     const wasteId = newWaste._id;
-    console.log(wasteId);
-    console.log(user);
     user.contribution.push(wasteId);
     await user.save();
-    console.log(User);
 
     res.send({ msg: "success", status: 200 , newWaste});
   } catch (error) {

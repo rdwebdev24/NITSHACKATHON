@@ -10,6 +10,7 @@ export const Rsidebar = () => {
   useEffect(()=>{
     setActive(JSON.parse(localStorage.getItem('active')))
   })
+  console.log(active);
   return (
     <div className="rightSidebar">
        <ul>
