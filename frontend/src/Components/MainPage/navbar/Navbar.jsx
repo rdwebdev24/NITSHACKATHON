@@ -43,13 +43,14 @@ const Profile = () => {
           vertical: 'bottom',
           horizontal: 'left',
         }}
-        onClick={()=>{
+       
+      >
+        <Typography
+         onClick={()=>{
           localStorage.setItem('active',JSON.stringify('request'));
           localStorage.removeItem('greenitsToken');
           navigate('/login')
-        }}
-      >
-        <Typography sx={{ p: 2 }}> <BiLogOutCircle/> Logout</Typography>
+        }} sx={{ p: 2 }}> <BiLogOutCircle/> Logout</Typography>
       </Popover>
     </div>
   );
